@@ -1,0 +1,93 @@
+[debug] [2025-06-13T01:20:57.498Z] ----------------------------------------------------------------------
+[debug] [2025-06-13T01:20:57.499Z] Command:       /usr/local/bin/firebase /Users/duhwan/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase init hosting
+[debug] [2025-06-13T01:20:57.500Z] CLI Version:   13.35.1
+[debug] [2025-06-13T01:20:57.500Z] Platform:      darwin
+[debug] [2025-06-13T01:20:57.500Z] Node Version:  v18.5.0
+[debug] [2025-06-13T01:20:57.503Z] Time:          Fri Jun 13 2025 10:20:57 GMT+0900 (Korean Standard Time)
+[debug] [2025-06-13T01:20:57.503Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-06-13T01:20:57.683Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-06-13T01:20:57.684Z] > authorizing via signed-in user (hguflamejohn@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/duhwan/StudioProjects/again_project
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2025-06-13T01:20:57.689Z] Using project from CLI flag: again-18d3c
+[debug] [2025-06-13T01:20:57.691Z] Checked if tokens are valid: true, expires at: 1749781078487
+[debug] [2025-06-13T01:20:57.692Z] Checked if tokens are valid: true, expires at: 1749781078487
+[debug] [2025-06-13T01:20:57.693Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/again-18d3c [none]
+[debug] [2025-06-13T01:20:58.206Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/again-18d3c 200
+[debug] [2025-06-13T01:20:58.209Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/again-18d3c {"projectId":"again-18d3c","projectNumber":"176514022157","displayName":"again","name":"projects/again-18d3c","resources":{"hostingSite":"again-18d3c"},"state":"ACTIVE","etag":"1_6c0a110f-cc10-4687-bfcd-e05b2aa0c658"}
+[info] i  Using project again-18d3c (again) 
+[info] 
+=== Hosting Setup
+[debug] [2025-06-13T01:20:58.224Z] Checked if tokens are valid: true, expires at: 1749781078487
+[debug] [2025-06-13T01:20:58.225Z] Checked if tokens are valid: true, expires at: 1749781078487
+[debug] [2025-06-13T01:20:58.225Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/again-18d3c [none]
+[debug] [2025-06-13T01:20:58.693Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/again-18d3c 200
+[debug] [2025-06-13T01:20:58.696Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/again-18d3c {"projectId":"again-18d3c","projectNumber":"176514022157","displayName":"again","name":"projects/again-18d3c","resources":{"hostingSite":"again-18d3c"},"state":"ACTIVE","etag":"1_6c0a110f-cc10-4687-bfcd-e05b2aa0c658"}
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
+[debug] [2025-06-13T01:21:32.426Z] >>> [apiv2][query] GET https://www.gstatic.com/firebasejs/releases.json [none]
+[debug] [2025-06-13T01:21:32.639Z] <<< [apiv2][status] GET https://www.gstatic.com/firebasejs/releases.json 200
+[debug] [2025-06-13T01:21:32.640Z] <<< [apiv2][body] GET https://www.gstatic.com/firebasejs/releases.json {"current":{"version":"11.9.1","browserURL":"https://www.gstatic.com/firebasejs/11.9.1/firebase.js","packageURL":"https://www.gstatic.com/firebasejs/11.9.1/firebase.tgz"},"live":{"version":"11.9","browserURL":"https://www.gstatic.com/firebasejs/live/11.9/firebase.js","packageURL":"https://www.gstatic.com/firebasejs/live/11.9/firebase.tgz"},"components":{"ai":"https://www.gstatic.com/firebasejs/11.9.1/firebase-ai.js","analytics":"https://www.gstatic.com/firebasejs/11.9.1/firebase-analytics.js","app":"https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js","app-check":"https://www.gstatic.com/firebasejs/11.9.1/firebase-app-check.js","auth":"https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js","auth/cordova":"https://www.gstatic.com/firebasejs/11.9.1/firebase-auth/cordova.js","auth/web-extension":"https://www.gstatic.com/firebasejs/11.9.1/firebase-auth/web-extension.js","functions":"https://www.gstatic.com/firebasejs/11.9.1/firebase-functions.js","firestore":"https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js","firestore/lite":"https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore/lite.js","installations":"https://www.gstatic.com/firebasejs/11.9.1/firebase-installations.js","storage":"https://www.gstatic.com/firebasejs/11.9.1/firebase-storage.js","performance":"https://www.gstatic.com/firebasejs/11.9.1/firebase-performance.js","remote-config":"https://www.gstatic.com/firebasejs/11.9.1/firebase-remote-config.js","messaging":"https://www.gstatic.com/firebasejs/11.9.1/firebase-messaging.js","messaging/sw":"https://www.gstatic.com/firebasejs/11.9.1/firebase-messaging/sw.js","database":"https://www.gstatic.com/firebasejs/11.9.1/firebase-database.js","vertexai":"https://www.gstatic.com/firebasejs/11.9.1/firebase-vertexai.js","data-connect":"https://www.gstatic.com/firebasejs/11.9.1/firebase-data-connect.js","firestore.memory":"https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.memory.js"}}
+[info] i  Skipping write of build/index.html 
+[info] 
+[info] i  Detected a .git folder at /Users/duhwan/StudioProjects/again_project 
+[info] i  Authorizing with GitHub to upload your service account to a GitHub repository's secrets store. 
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://github.com/login/oauth/authorize?client_id=89cf50f02ac6aaed3484&state=1018096055&redirect_uri=http%3A%2F%2Flocalhost%3A9005&scope=read%3Auser%20repo%20public_repo
+[info] 
+[info] Waiting for authentication...
+[debug] [2025-06-13T01:21:55.057Z] >>> [apiv2][query] POST https://github.com/login/oauth/access_token [none]
+[debug] [2025-06-13T01:21:55.057Z] >>> [apiv2][body] POST https://github.com/login/oauth/access_token [stream]
+[debug] [2025-06-13T01:21:55.444Z] <<< [apiv2][status] POST https://github.com/login/oauth/access_token 200
+[debug] [2025-06-13T01:21:55.444Z] <<< [apiv2][body] POST https://github.com/login/oauth/access_token {"access_token":"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","token_type":"bearer","scope":"read:user,repo"}
+[debug] [2025-06-13T01:21:55.463Z] >>> [apiv2][query] GET https://api.github.com/user [none]
+[debug] [2025-06-13T01:21:55.848Z] <<< [apiv2][status] GET https://api.github.com/user 200
+[debug] [2025-06-13T01:21:55.848Z] <<< [apiv2][body] GET https://api.github.com/user {"login":"DooHK","id":126567268,"node_id":"U_kgDOB4tDZA","avatar_url":"https://avatars.githubusercontent.com/u/126567268?v=4","gravatar_id":"","url":"https://api.github.com/users/DooHK","html_url":"https://github.com/DooHK","followers_url":"https://api.github.com/users/DooHK/followers","following_url":"https://api.github.com/users/DooHK/following{/other_user}","gists_url":"https://api.github.com/users/DooHK/gists{/gist_id}","starred_url":"https://api.github.com/users/DooHK/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/DooHK/subscriptions","organizations_url":"https://api.github.com/users/DooHK/orgs","repos_url":"https://api.github.com/users/DooHK/repos","events_url":"https://api.github.com/users/DooHK/events{/privacy}","received_events_url":"https://api.github.com/users/DooHK/received_events","type":"User","user_view_type":"private","site_admin":false,"name":null,"company":null,"blog":"","location":null,"email":null,"hireable":null,"bio":null,"twitter_username":null,"notification_email":null,"public_repos":10,"public_gists":0,"followers":0,"following":0,"created_at":"2023-02-28T10:34:06Z","updated_at":"2025-06-03T04:31:20Z","private_gists":0,"total_private_repos":6,"owned_private_repos":5,"disk_usage":73458,"collaborators":1,"two_factor_authentication":false,"plan":{"name":"free","space":976562499,"collaborators":0,"private_repos":10000}}
+[info] 
+[info] ✔  Success! Logged into GitHub as DooHK 
+[info] 
+[debug] [2025-06-13T01:22:25.146Z] >>> [apiv2][query] GET https://api.github.com/repos/DooHK/again-project/actions/secrets/public-key type=owner
+[debug] [2025-06-13T01:22:25.457Z] <<< [apiv2][status] GET https://api.github.com/repos/DooHK/again-project/actions/secrets/public-key 404
+[debug] [2025-06-13T01:22:25.458Z] <<< [apiv2][body] GET https://api.github.com/repos/DooHK/again-project/actions/secrets/public-key {"message":"Not Found","documentation_url":"https://docs.github.com/rest/actions/secrets#get-a-repository-public-key","status":"404"}
+[info] 
+[info] 
+[error] ⚠  The provided authorization cannot be used with this repository. If this repository is in an organization, did you remember to grant access? 
+[info] 
+[info] i  Action required: Visit this URL to ensure access has been granted to the appropriate organization(s) for the Firebase CLI GitHub OAuth App: 
+[info] https://github.com/settings/connections/applications/89cf50f02ac6aaed3484
+[info] 
+[debug] [2025-06-13T01:22:25.543Z] >>> [apiv2][query] GET https://api.github.com/repos/DooHK/again-project/actions/secrets/public-key type=owner
+[debug] [2025-06-13T01:22:25.911Z] <<< [apiv2][status] GET https://api.github.com/repos/DooHK/again-project/actions/secrets/public-key 404
+[debug] [2025-06-13T01:22:25.911Z] <<< [apiv2][body] GET https://api.github.com/repos/DooHK/again-project/actions/secrets/public-key {"message":"Not Found","documentation_url":"https://docs.github.com/rest/actions/secrets#get-a-repository-public-key","status":"404"}
+[info] 
+[info] 
+[error] ⚠  The provided authorization cannot be used with this repository. If this repository is in an organization, did you remember to grant access? 
+[info] 
+[info] i  Action required: Visit this URL to ensure access has been granted to the appropriate organization(s) for the Firebase CLI GitHub OAuth App: 
+[info] https://github.com/settings/connections/applications/89cf50f02ac6aaed3484
+[info] 
