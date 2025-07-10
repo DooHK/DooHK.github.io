@@ -70,14 +70,14 @@ function Page2({ setDirection }) {
 
 const styles = {
   container: {
-    height: '100vh',
-    background: 'linear-gradient(to bottom, #fffaf7, white)',
+    height: '120vh',
+    background: 'linear-gradient(to bottom, #fff6f0, white)',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    fontFamily: "'Noto Serif KR', serif",
-    color: '#6D4C41',
+    fontFamily: "SM SEMyungJo Std, serif",
+    color: '#603E00',
   },
   textBox: {
     textAlign: 'center',
@@ -95,15 +95,16 @@ const styles = {
   },
   lineDown: {
     width: '2px',
-    height: '40px',
-    backgroundColor: '#6D4C41',
+    height: '150px',
+    background: 'linear-gradient(to top, #603E00, transparent)',
   },
   dot: {
     width: '8px',
     height: '8px',
     backgroundColor: '#6D4C41',
     borderRadius: '50%',
-    marginTop: '5px',
+    marginTop: '0px',
+    color : '#603E00',
   },
   arrowText: {
     fontSize: '14px',

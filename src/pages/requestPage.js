@@ -122,7 +122,18 @@ function SubmitPage({ setDirection }) {
       window.removeEventListener('touchmove', handleTouch);
     };
   }, [navigate, setDirection]);
-
+  const formatPhoneNumber = (phoneNumber) => {
+    if (!phoneNumber) return '';
+    // 숫자만 추출
+    const numbers = phoneNumber.replace(/[^\d]/g, '');
+    // 010-0000-0000 형태로 포맷팅
+    if (numbers.length === 11) {
+      return `${numbers.slice(0, 3)}-${numbers.slice(3, 7)}-${numbers.slice(7)}`;
+    } else if (numbers.length === 10) {
+      return `${numbers.slice(0, 3)}-${numbers.slice(3, 6)}-${numbers.slice(6)}`;
+    }
+    return phoneNumber; // 형식이 맞지 않으면 원본 반환
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
   
@@ -148,18 +159,30 @@ function SubmitPage({ setDirection }) {
   return (
     <PageWrapper>
       <div style={styles.container}>
-        <h2 style={styles.title}>전화번호와 이름을 확인해주세요.</h2>
+        <div style={styles.title}>전화번호와 이름을 확인해주세요.</div>
 
         <div style={styles.infoContainer}>
           <div style={styles.card}>
-            <h3 style={styles.role}>보내는 사람</h3>
-            <p><strong>이름</strong><span style={styles.value}>{formData.myName}</span></p>
-            <p><strong>전화번호</strong><span style={styles.value}>{formData.myPhone}</span></p>
+            <div style={styles.role}>보내는 사람</div>
+            <div style={styles.infoItem}>
+              <span style={styles.label}>이름</span>
+              <span style={styles.value}>{formData.myName}</span>
+            </div>
+            <div style={styles.infoItem}>
+              <span style={styles.label}>전화번호</span>
+              <span style={styles.value}>{formatPhoneNumber(formData.myPhone)}</span>
+            </div>
           </div>
           <div style={styles.card}>
-            <h3 style={styles.role}>받는 사람</h3>
-            <p><strong>이름</strong><span style={styles.value}>{formData.targetName}</span></p>
-            <p><strong>전화번호</strong><span style={styles.value}>{formData.targetPhone}</span></p>
+            <div style={styles.role}>받는 사람</div>
+            <div style={styles.infoItem}>
+              <span style={styles.label}>이름</span>
+              <span style={styles.value}>{formData.targetName}</span>
+            </div>
+            <div style={styles.infoItem}>
+              <span style={styles.label}>전화번호</span>
+              <span style={styles.value}>{formatPhoneNumber(formData.targetPhone)}</span>
+            </div>
           </div>
         </div>
 
@@ -176,37 +199,49 @@ function SubmitPage({ setDirection }) {
 const styles = {
   container: {
     height: '100vh',
+    weight: '100%',
     background: 'linear-gradient(to bottom, #fffaf7, white)',
-    fontFamily: "'Noto Serif KR', serif",
-    color: '#6D4C41',
+    fontFamily: "SM SEMyungJo Std, serif",
+    color: '#603E00',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     paddingTop: '100px',
   },
   title: {
-    fontSize: '22px',
-    marginBottom: '60px',
+    fontSize: '25px',
+    marginBottom: '70px',
+    marginTop: '100px',
   },
   infoContainer: {
     display: 'flex',
     justifyContent: 'center',
-    gap: '80px',
+    gap: '180px',
     width: '80%',
     maxWidth: '700px',
+    marginLeft: '-50px',
   },
   card: {
     fontSize: '17px',
-    lineHeight: '2em',
+    lineHeight: '1em',
+    marginLeft: '20px',
   },
   role: {
     fontSize: '16px',
-    marginBottom: '10px',
+    marginBottom: '20px',
+  },
+  infoItem: {
+    display: 'flex',
+    alignItems: 'center',
+    marginBottom: '15px',
+  },
+  label: {
+    minWidth: '80px',
+    textAlign: 'left',
   },
   value: {
     display: 'inline-block',
     borderBottom: '1px solid #c6a88c',
-    marginLeft: '15px',
     paddingBottom: '2px',
     minWidth: '120px',
   },
@@ -218,23 +253,25 @@ const styles = {
   },
   lineDown: {
     width: '2px',
-    height: '40px',
-    backgroundColor: '#6D4C41',
+    height: '150px',
+    background: 'linear-gradient(to top, #603E00, transparent)',
   },
   dot: {
     width: '8px',
     height: '8px',
     backgroundColor: '#6D4C41',
     borderRadius: '50%',
-    marginTop: '5px',
+    marginTop: '0px',
+    color : '#603E00',
   },
   submitButton: {
-    marginTop: '20px',
-    border: '1px solid #6D4C41',
-    borderRadius: '50px',
+    marginTop: '-5px',
+    height: '48px',
+    border: '2px solid #6D4C41',
+    borderRadius: '50%',
     background: 'transparent',
     color: '#6D4C41',
-    padding: '8px 20px',
+    padding: '12px 26px',
     fontSize: '16px',
     cursor: 'pointer',
   },

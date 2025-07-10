@@ -93,31 +93,50 @@ function Request1({ setDirection }) {
           <p style={styles.arrowText}>아래로</p>
         </div>
       </div>
+      <style>
+          {`
+            input::placeholder {
+              color: #603E00;
+              opacity: 0.3;
+            }
+            input::-webkit-input-placeholder {
+              color: #603E00;
+            }
+            input::-moz-placeholder {
+              color: #603E00;
+              opacity: 0.3;
+            }
+            input:-ms-input-placeholder {
+              color: #603E00;
+            }
+          `}
+        </style>
     </PageWrapper>
   );
 }
 
 const styles = {
   container: {
-    height: '100vh',
+    height: '120vh',
     background: 'linear-gradient(to bottom, #fffaf7, white)',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    fontFamily: "'Noto Serif KR', serif",
-    color: '#6D4C41',
+    fontFamily: "SM SEMyungJo Std, serif",
+    color: '#603E00',
   },
   textBox: {
     textAlign: 'center',
     marginTop: '100px',
   },
   title: {
-    fontSize: '22px',
+    fontSize: '25px',
     marginBottom: '10px',
+    marginTop: '100px',
   },
   sub: {
-    fontSize: '13px',
-    color: '#a8876f',
+    fontSize: '18px',
+    color: '#603E00',
   },
   form: {
     marginTop: '60px',
@@ -126,20 +145,24 @@ const styles = {
   },
   field: {
     marginBottom: '30px',
+    display: 'flex',  
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   label: {
-    display: 'block',
-    marginBottom: '5px',
+    marginRight: '20px',
     fontSize: '17px',
+    minWidth: '80px',
+    textAlign: 'left',
   },
   input: {
-    width: '100%',
+    flex: 1,
     border: 'none',
     borderBottom: '1px solid #c6a88c',
     padding: '8px',
     fontSize: '15px',
     backgroundColor: 'transparent',
-    color: '#6D4C41',
+    color: '#603E00',
     outline: 'none',
   },
   arrowBox: {
@@ -150,15 +173,16 @@ const styles = {
   },
   lineDown: {
     width: '2px',
-    height: '40px',
-    backgroundColor: '#6D4C41',
+    height: '150px',
+    background: 'linear-gradient(to top, #603E00, transparent)',
   },
   dot: {
     width: '8px',
     height: '8px',
     backgroundColor: '#6D4C41',
     borderRadius: '50%',
-    marginTop: '5px',
+    marginTop: '0px',
+    color : '#603E00',
   },
   arrowText: {
     fontSize: '14px',
