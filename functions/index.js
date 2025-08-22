@@ -1,30 +1,50 @@
-const functions = require('firebase-functions');
+// const functions = require('firebase-functions');
+// const admin = require('firebase-admin');
+// const { SolapiMessageService } = require('solapi'); // 올바른 import 인지 확인 필요
+// const cors = require('cors')({ origin: true });
+
+// Gen2: v2 API 사용
+const { onRequest } = require('firebase-functions/v2/https');
+const { defineSecret } = require('firebase-functions/params');
 const admin = require('firebase-admin');
-const { SolapiMessageService } = require('solapi'); // 올바른 import 인지 확인 필요
-const cors = require('cors')({ origin: true });
+const { SolapiMessageService } = require('solapi');
+
+
 
 admin.initializeApp();
 const db = admin.firestore();
-require('dotenv').config();
+// require('dotenv').config();
 
-const apiKey = process.env.SOLAPI_API_KEY;
-const apiSecret = process.env.SOLAPI_API_SECRET;
+
+// 🔐 Secret 정의 (Gen2)
+const SOLAPI_API_KEY = defineSecret('SOLAPI_API_KEY');
+const SOLAPI_API_SECRET = defineSecret('SOLAPI_API_SECRET');
+
+
+// const apiKey = process.env.SOLAPI_API_KEY;
+// const apiSecret = process.env.SOLAPI_API_SECRET;
 
 // Solapi 메시지 서비스 초기화
-const messageService = new SolapiMessageService(apiKey, apiSecret);
+// const messageService = new SolapiMessageService(apiKey, apiSecret);
 
-exports.sendRequest = functions.https.onRequest((req, res) => {
-  cors(req, res, async () => {
-    // 요청 검증
-    if (req.method !== 'POST') {
-      return res.status(405).json({ message: '허용되지 않는 메소드입니다.' });
-    }
+exports.sendRequest = onRequest(
+  {
+    cors: true,
+    region: 'us-central1', // 기존 run.app가 uc(=us-central1)였다면 그대로 유지
+    secrets: [SOLAPI_API_KEY, SOLAPI_API_SECRET],
+  },
+  async (req, res) => {
+    if (req.method !== 'POST') return res.status(405).json({ message: '허용되지 않는 메소드입니다.' });
 
-    const { name, myPhone, targetPhone } = req.body;
-    
-    // 필수 파라미터 검증
-    if (!name || !myPhone || !targetPhone) {
-      return res.status(400).json({ message: '모든 필드를 입력해주세요.' });
+    const { name, myPhone, targetPhone } = req.body || {};
+    if (!name || !myPhone || !targetPhone) return res.status(400).json({ message: '모든 필드를 입력해주세요.' });
+
+    // ✅ 핸들러 안에서 시크릿 읽기
+    const apiKey = SOLAPI_API_KEY.value();
+    const apiSecret = SOLAPI_API_SECRET.value();
+    const messageService = new SolapiMessageService(apiKey, apiSecret);
+    if (!apiKey || !apiSecret) {
+      return res.status(500).json({ message: 'Solapi 시크릿이 주입되지 않았습니다.' });
     }
 
     try {
@@ -148,4 +168,3 @@ exports.sendRequest = functions.https.onRequest((req, res) => {
       });
     }
   });
-});

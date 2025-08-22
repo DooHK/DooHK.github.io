@@ -144,7 +144,7 @@ function SubmitPage({ setDirection }) {
     };
   
     try {
-      const res = await fetch('https://sendrequest-gqqldsqdxq-uc.a.run.app', {
+      const res = await fetch('https://us-central1-again-18d3c.cloudfunctions.net/sendRequest', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
