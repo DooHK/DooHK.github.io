@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PageWrapper from '../utils/PageWrapper';
+import '../style/page1.css';
 
 function Page1({ setDirection }) {
   const navigate = useNavigate();
@@ -43,66 +44,68 @@ function Page1({ setDirection }) {
 
   return (
     <PageWrapper>
-      <div style={styles.container}>
-        <div style={styles.textBox}>
-          <p style={styles.line}>누군가에게 아직 전하지 못한 마음이 있나요?</p>
-          <p style={styles.line}>아니면, 여전히 그리워하고 있나요?</p>
-          <p style={{ ...styles.line, marginTop: '40px' }}>
+      <div className = "container">
+        <div className='textBox'>
+          <p clssname= 'line'>누군가에게 아직 전하지 못한 마음이 있나요?</p>
+          <p clssname= 'line'>아니면, 여전히 그리워하고 있나요?</p>
+          <p className='linemargin'>
             그 사람도 당신을 떠올리고 있을지 몰라요.
           </p>
         </div>
-        <div style={styles.arrowBox}>
-          <div style={styles.lineDown} />
-          <div style={styles.dot} />
-          <p style={styles.arrowText}>아래로</p>
+        <div className='arrowBox'>
+          <div className='lineDown' />
+          <div className='dot' />
+          <p className='arrowText'>아래로</p>
         </div>
       </div>
     </PageWrapper>
   );
 }
 
-const styles = {
-  container: {
-    height: '120vh',
-    background: 'linear-gradient(to bottom, #fff6f0, white)',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    fontFamily: "SM SEMyungJo Std, serif",
-    color: '#603E00',
-  },
-  textBox: {
-    textAlign: 'center',
-    fontSize: '20px',
-    lineHeight: '2em',
-  },
-  line: {
-    margin: 0,
-  },
-  arrowBox: {
-    marginTop: '80px',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  lineDown: {
-    width: '2px',
-    height: '150px',
-    background: 'linear-gradient(to top, #603E00, transparent)',
-  },
-  dot: {
-    width: '8px',
-    height: '8px',
-    backgroundColor: '#6D4C41',
-    borderRadius: '50%',
-    marginTop: '0px',
-    color : '#603E00',
-  },
-  arrowText: {
-    fontSize: '14px',
-    marginTop: '8px',
-  },
-};
+// const styles = {
+//   container: {
+//     height: '120vh',
+//     background: 'linear-gradient(to bottom, #fff6f0, white)',
+//     display: 'flex',
+//     flexDirection: 'column',
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     fontFamily: "SM SEMyungJo Std, serif",
+//     color: '#603E00',
+//   },
+//   textBox: {
+//     textAlign: 'center',
+//     fontSize: '20px',
+//     lineHeight: '2em',
+//   },
+//   line: {
+//     margin: 0,
+//   },
+//   arrowBox: {
+//     marginTop: '80px',
+//     display: 'flex',
+//     flexDirection: 'column',
+//     alignItems: 'center',
+//   },
+//   lineDown: {
+//     width: '2px',
+//     height: '150px',
+//     background: 'linear-gradient(to top, #603E00, transparent)',
+//   },
+//   dot: {
+//     width: '8px',
+//     height: '8px',
+//     backgroundColor: '#6D4C41',
+//     borderRadius: '50%',
+//     marginTop: '0px',
+//     color : '#603E00',
+//   },
+//   arrowText: {
+//     fontSize: '14px',
+//     marginTop: '8px',
+//   },
+    
+  
+// };
 
 export default Page1;

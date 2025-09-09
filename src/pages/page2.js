@@ -30,7 +30,7 @@ function Page2({ setDirection }) {
           if (!scrolled.current && diff > 30) {
             scrolled.current = true;
             setDirection('down');
-            navigate('/request');
+            navigate('/page3');
           } else if (!scrolled.current && diff < -30) {
             scrolled.current = true;
             setDirection('up');

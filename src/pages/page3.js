@@ -31,7 +31,7 @@ function Page3({ setDirection }) {
           if (!scrolled.current && diff > 30) {
             scrolled.current = true;
             setDirection('down');
-            navigate('/request');
+            navigate('/request1');
           } else if (!scrolled.current && diff < -30) {
             scrolled.current = true;
             setDirection('up');
