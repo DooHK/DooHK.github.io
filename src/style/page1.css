@@ -1,0 +1,92 @@
+/* Page1.css */
+
+/* 시스템 폰트 fallback + 지정 폰트 */
+@font-face {
+  font-family: "SM SEMyungJo Std";
+  src: local("SM SEMyungJo Std");
+  font-display: swap;
+}
+
+:root {
+  --bg-start: #fff6f0;
+  --bg-end: #ffffff;
+  --text: #603E00;
+  --accent: #6D4C41;
+  --container-max: 1100px;
+}
+
+/* iOS 홈바 안전 영역 고려 + 100dvh 로 모바일 브라우저 주소창 변화 대응 */
+.p1-container {
+  min-height: 100dvh;
+  padding:
+    max(12px, env(safe-area-inset-top))
+    max(16px, env(safe-area-inset-right))
+    max(24px, env(safe-area-inset-bottom))
+    max(16px, env(safe-area-inset-left));
+  background: linear-gradient(to bottom, var(--bg-start), var(--bg-end));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--text);
+  font-family: "SM SEMyungJo Std", ui-serif, Georgia, "Times New Roman", serif;
+}
+
+/* 텍스트 박스: 넓은 화면에서 폭 제한 */
+.p1-textBox {
+  text-align: center;
+  line-height: 2;
+  max-width: var(--container-max);
+  padding: 0 16px;
+}
+
+/* 폰트 사이즈 유동: clamp(min, preferred, max) */
+.p1-line {
+  margin: 0;
+  font-size: clamp(16px, 2.2vw, 22px);
+}
+
+/* 위/아래 여백 반응형 */
+.p1-gapTop { margin-top: clamp(24px, 4vh, 40px); }
+
+/* 아래로 표시 영역 */
+.p1-arrowBox {
+  margin-top: clamp(40px, 7vh, 80px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.p1-lineDown {
+  width: 2px;
+  height: clamp(90px, 16vh, 150px);
+  background: linear-gradient(to top, var(--text), transparent);
+}
+
+.p1-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent);
+  border-radius: 50%;
+  margin-top: 0;
+}
+
+.p1-arrowText {
+  font-size: clamp(12px, 1.8vw, 14px);
+  margin-top: 8px;
+}
+
+/* 태블릿 이하에서 약간 더 크게 */
+@media (max-width: 768px) {
+  .p1-line { font-size: clamp(16px, 3.4vw, 20px); }
+}
+
+/* 데스크탑에서 행간 살짝 줄임 */
+@media (min-width: 1024px) {
+  .p1-textBox { line-height: 1.9; }
+}
+
+/* 모션 민감 사용자 배려 (선택) */
+@media (prefers-reduced-motion: reduce) {
+  .p1-lineDown { transition: none; }
+}
